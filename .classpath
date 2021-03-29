@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="jar/byte-buddy-1.8.15.jar"/>
+	<classpathentry kind="lib" path="jar/client-combined-3.141.59.jar"/>
+	<classpathentry kind="lib" path="jar/client-combined-3.141.59-sources.jar"/>
+	<classpathentry kind="lib" path="jar/commons-exec-1.3.jar"/>
+	<classpathentry kind="lib" path="jar/commons-lang3-3.11.jar"/>
+	<classpathentry kind="lib" path="jar/commons-lang3-3.11-javadoc.jar"/>
+	<classpathentry kind="lib" path="jar/commons-lang3-3.11-sources.jar"/>
+	<classpathentry kind="lib" path="jar/commons-lang3-3.11-tests.jar"/>
+	<classpathentry kind="lib" path="jar/commons-lang3-3.11-test-sources.jar"/>
+	<classpathentry kind="lib" path="jar/commons-lang3-3.9.jar"/>
+	<classpathentry kind="lib" path="jar/extentreports-2.41.2.jar"/>
+	<classpathentry kind="lib" path="jar/guava-25.0-jre.jar"/>
+	<classpathentry kind="lib" path="jar/java-client-7.0.0.jar"/>
+	<classpathentry kind="lib" path="jar/okhttp-3.11.0.jar"/>
+	<classpathentry kind="lib" path="jar/okio-1.14.0.jar"/>
+	<classpathentry kind="lib" path="jar/org.apache.commons.io.jar"/>
+	<classpathentry kind="lib" path="jar/poi-4.1.1.jar"/>
+	<classpathentry kind="lib" path="jar/poi-examples-4.1.1.jar"/>
+	<classpathentry kind="lib" path="jar/poi-excelant-4.1.1.jar"/>
+	<classpathentry kind="lib" path="jar/poi-ooxml-4.1.1.jar"/>
+	<classpathentry kind="lib" path="jar/poi-ooxml-schemas-4.1.1.jar"/>
+	<classpathentry kind="lib" path="jar/poi-scratchpad-4.1.1.jar"/>
+	<classpathentry kind="lib" path="jar/selenium-server-standalone-3.141.59.jar"/>
+	<classpathentry kind="con" path="org.testng.TESTNG_CONTAINER"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
