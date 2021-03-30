@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="17275" started-at="2021-03-30T16:33:56 IST" finished-at="2021-03-30T16:34:14 IST">
+    <groups>
+    </groups>
+    <test name="Test" duration-ms="17275" started-at="2021-03-30T16:33:56 IST" finished-at="2021-03-30T16:34:14 IST">
+      <class name="script.LoginFlipkart">
+        <test-method status="PASS" signature="openApplication()[pri:0, instance:script.LoginFlipkart@7d907bac]" name="openApplication" is-config="true" duration-ms="6019" started-at="2021-03-30T16:33:56 IST" finished-at="2021-03-30T16:34:02 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openApplication -->
+        <test-method status="PASS" signature="login()[pri:1, instance:script.LoginFlipkart@7d907bac]" name="login" duration-ms="10115" started-at="2021-03-30T16:34:02 IST" finished-at="2021-03-30T16:34:13 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method status="PASS" signature="closeApplication()[pri:0, instance:script.LoginFlipkart@7d907bac]" name="closeApplication" is-config="true" duration-ms="1077" started-at="2021-03-30T16:34:13 IST" finished-at="2021-03-30T16:34:14 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeApplication -->
+      </class> <!-- script.LoginFlipkart -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>
