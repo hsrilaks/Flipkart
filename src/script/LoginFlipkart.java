@@ -23,8 +23,9 @@ public class LoginFlipkart extends WebBase
 			//kart.CloseButton();
 	driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div[2]/div/form/div[1]/input")).sendKeys("hsrilaks@palcnetworks.com");
 			//kart.clickMobil();
+	
 				Thread.sleep(2000);
-			
+			System.out.println("logged in to flipkart");
 			
 		}catch(Exception e)
 			{
