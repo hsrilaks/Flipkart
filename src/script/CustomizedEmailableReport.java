@@ -1,4 +1,3 @@
-
 package script;
 
 import org.testng.*;
@@ -6,6 +5,10 @@ import org.testng.collections.Lists;
 import org.testng.internal.Utils;
 import org.testng.log4testng.Logger;
 import org.testng.xml.XmlSuite;
+
+import generic.AutoConst;
+import generic.Lib;
+
 import java.io.*;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
@@ -13,7 +16,7 @@ import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-public class CustomizedEmailableReport implements IReporter {
+public class CustomizedEmailableReport implements IReporter, AutoConst {
 
     private static final Logger L = Logger.getLogger(CustomizedEmailableReport.class);
 
@@ -24,7 +27,7 @@ public class CustomizedEmailableReport implements IReporter {
     private Integer testIndex;
     private int methodIndex;
     private Scanner scanner;
-
+    
     // ~ Methods --------------------------------------------------------------
 
     /** Creates summary of the run */
@@ -39,6 +42,7 @@ public class CustomizedEmailableReport implements IReporter {
         }
 
         startHtml(out);
+     //   environmentDetails(out);
         generateSuiteSummaryReport(suites);
         generateMethodSummaryReport(suites);
       //  generateMethodDetailReport(suites);
@@ -57,7 +61,7 @@ public class CustomizedEmailableReport implements IReporter {
 			eReport.delete();
 			System.out.println("Deleted");
 		}*/
-        return new PrintWriter(new BufferedWriter(new FileWriter(new File(outdir, "Automation-Report.html"))));
+        return new PrintWriter(new BufferedWriter(new FileWriter(new File(outdir, "WebAutomationReport.html"))));
 
     }
 
@@ -71,7 +75,7 @@ public class CustomizedEmailableReport implements IReporter {
         int testIndex = 1;
         for (ISuite suite : suites) {
             if (suites.size() >= 1) {
-                titleRow(suite.getName(), 6);
+                titleRow(suite.getName(), 7);
             }
             Map<String, ISuiteResult> r = suite.getResults();
             for (ISuiteResult r2 : r.values()) {
@@ -132,7 +136,7 @@ public class CustomizedEmailableReport implements IReporter {
                 if (mq == 0) {
                     String id = (testIndex == null ? null : "t"
                             + Integer.toString(testIndex));
-                    titleRow(testname, 6, id);
+                    titleRow(testname, 7, id);
                     testIndex = null;
                 }
                 if (!className.equalsIgnoreCase(lastClassName)) {
@@ -209,9 +213,9 @@ public class CustomizedEmailableReport implements IReporter {
                         + testInstanceName + ")") + "</td>"
                        + "<td style=\"text-align:right\">" +  (description != null && description.length() > 0 ? 
                                 description : "") + "</td>" 
-                      //  + "<td class=\"numi\" style=\"text-align:left;padding-right:2em\">" + firstLine+"<br/>"+screenshotLnk+ "</td>"
+                      
                         + "<td style=\"text-align:right\">" + formatter.format(calendar.getTime()) + "</td>" + "<td class=\"numi\">"
-                        + millisToTimeConversion(end - start) + "</td>" +
+                        + millisToTimeConversion(end - start) + "</td>"  + "<td class=\"numi\" style=\"text-align:left;padding-right:2em\">" +screenshotLnk+ "</td>"+
                         "<td class=\"" + style + "even\">"+style+"</td>" 
                         +"</tr>");
             }
@@ -256,7 +260,7 @@ public class CustomizedEmailableReport implements IReporter {
     private void startResultSummaryTable(String style) {
         tableStart(style, "summary");
         out.println("<tr><th>Class</th>"
-                + "<th>Method</th><th>Description</th><th>Method Start Time </th><th>Execution Time<br/>(hh:mm:ss)</th><th>Status </th></tr>");
+                + "<th>Method</th><th>Description</th><th>Method Start Time </th><th>Execution Time<br/>(hh:mm:ss)</th><th>Failed Screenshots</th><th>Status</th></tr>");
         row = 0;
     }
 
@@ -358,6 +362,29 @@ public class CustomizedEmailableReport implements IReporter {
         return result;
     }
 
+    
+  /*  @SuppressWarnings("unused")
+    public void environmentDetails(PrintWriter out) {
+        tableStart("EnvironmentDetails", null);
+        out.print("<tr>");
+        tableColumnStart("Environment");
+        tableColumnStart("URL");
+        out.print("</tr>");
+        String build_type;
+        String url = Lib.getProperty(CONFIG_PATH, "CosumerUrl");
+        if (url.contains("172")) {
+        	build_type = "Testing";
+        }else {
+        	build_type = "Production";
+        }
+        
+        summaryCell(build_type, true);
+        
+        summaryCell(url, true);
+        
+        out.println("</table>");
+    }*/
+    
     @SuppressWarnings("unused")
     public void generateSuiteSummaryReport(List<ISuite> suites) {
         tableStart("testOverview", null);
@@ -370,8 +397,9 @@ public class CustomizedEmailableReport implements IReporter {
         tableColumnStart("Automation<br/>Start Date/Time");
         tableColumnStart("Automation<br/>End Date/Time");
         tableColumnStart("Total<br/>Time(hh:mm:ss)");
+       
         /*tableColumnStart("Included<br/>Groups");
-        tableColumnStart("Excluded<br/>Groups");*/
+        tableColumnStart("Excluded<br/>Groups"); */
 
         out.println("</tr>");
         NumberFormat formatter = new DecimalFormat("#,##0.0");
@@ -417,6 +445,7 @@ public class CustomizedEmailableReport implements IReporter {
                 time_end = Math.max(overview.getEndDate().getTime(), time_end);
                 summaryCell(millisToTimeConversion((overview.getEndDate().getTime() - overview
                         .getStartDate().getTime()) / 1000), true);
+                
 
                 out.println("</tr>");
                 testIndex++;
@@ -523,7 +552,8 @@ public class CustomizedEmailableReport implements IReporter {
 
     /** Finishes HTML stream */
     protected void endHtml(PrintWriter out) {
-       // out.println("<center> AIGIS QA </center>");
+       // out.println("<center> Automation </center>");
+       
         out.println("</body></html>");
     }
 

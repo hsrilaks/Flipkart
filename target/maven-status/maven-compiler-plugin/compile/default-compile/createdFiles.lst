@@ -1,0 +1,10 @@
+generic\WebBase.class
+generic\Lib.class
+generic\AutoConst.class
+script\LoginFlipkart.class
+pom\LoginFlipkartPage.class
+script\CustomizedEmailableReport$1.class
+script\CustomizedEmailableReport$TestSorter.class
+script\CustomizedEmailableReport.class
+script\CustomizedEmailableReport$TestMethodSorter.class
+script\CustomizedEmailableReport$TestResultsSorter.class
