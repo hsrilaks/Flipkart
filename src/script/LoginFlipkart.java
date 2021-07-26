@@ -25,7 +25,7 @@ public class LoginFlipkart extends WebBase
 			//kart.clickMobil();
 	
 				Thread.sleep(2000);
-			System.out.println("logged in to flipkart");
+			System.out.println("logged in to flipkart application");
 			
 		}catch(Exception e)
 			{
